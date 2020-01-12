@@ -7,6 +7,18 @@ import socket
 TOPIC = "snort"
 KEY = "snort"
 
+def publish_message(producer_instance, topic_name, key, value):
+    try:
+        print(value)
+        key_bytes = bytes(key, encoding='utf-8')
+        value_bytes = bytes(value, encoding='utf-8')
+        producer_instance.send(topic_name, key=key_bytes, value=value_bytes)
+        producer_instance.flush()
+        print('Message published successfully.')
+    except Exception as ex:
+        print('Exception in publishing message')
+        print(ex)
+
 def ip6_to_str(address):
     return socket.inet_ntop(socket.AF_INET6, address)
 
@@ -132,7 +144,8 @@ def main():
             #print('Non IP Packet type not supported %s\n' % eth.data.__class__.__name__)
 
         # snort_mqtt.publish(topic, json.dumps(snort_message))
-        kafka_producer.send(TOPIC, key=KEY, value=snort_message)
+        # kafka_producer.send(TOPIC, key=KEY, value=snort_message)
+        publish_message(kafka_producer, TOPIC, KEY, snort_message)
 
 
 if __name__ == "__main__":
