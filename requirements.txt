@@ -31,7 +31,7 @@ dnspython==1.16.0
 docutils==0.14
 dpkt==1.9.2
 feedgenerator==1.9
-Flask==0.12.2
+Flask==1.0
 Flask-Bcrypt==0.7.1
 Flask-Cors==3.0.3
 Flask-Migrate==2.1.0
