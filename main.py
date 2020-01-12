@@ -52,10 +52,10 @@ def main():
         snort_message["src_mac"] = src_mac
         snort_message["dest_mac"] = dest_mac
 
-        if eth.data.p = 255:
-            snort_messagep["protocol"] = list_protocol[145]
+        if eth.data.p == 255:
+            snort_message["protocol"] = list_protocol[145]
         elif eth.data.p <= 254 and eth.data.p >= 253:
-            snort_messagep["protocol"] = list_protocol[144]
+            snort_message["protocol"] = list_protocol[144]
         elif eth.data.p <= 252 and eth.data.p >= 143:
             snort_message["protocol"] = list_protocol[143]
         else:
