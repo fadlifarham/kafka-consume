@@ -40,7 +40,7 @@ def main():
     snort_message = {}
     list_protocol = ["HOPOPT","ICMP","IGMP","GGP","IP-in-IP","ST","TCP","CBT","EGP","IGP","BBN-RCC-MON", "NVP-II","PUP","ARGUS","EMCON","EXNET","CHAOS","UDP","MUX","DCN-MEAS","HMP","PRM","XNS-IDP","TRUNK-1","TRUNK-2","LEAF-1","LEAF-2","RDP","IRTP","ISO-TP4","NETBLT","MFE-NSP","MERIT-INP","DCCP","3PC","IDPR","XTP","DDP","IDPR-CMTP","TP++","IL","IPv6","SDRP","IPv6-Route","IPv6-Frag","IDRP","RSVP","GREs","DSR","BNA","ESP","AH","I-NLSP","SWIPE","NARP","MOBILE","TLSP","SKIP","IPv6-ICMP","IPv6-NoNxt","IPv6-Opts","Host Internal Protocol","CFTP","Any Local Network","SAT-EXPAK","KRYPTOLAN","RVD","IPPC","Any Distributed File System","SAT-MON","VISA","IPCU","CPNX","CPHB","WSN","PVP","BR-SAT-MON","SUN-ND","WB-MON","WB-EXPAK","ISO-IP","VMTP","SECURE-VMTP","VINES","TTP/IPTMP","NSFNET-IGP","DGP","TCF","EIGRP","OSPF","Sprite-RPC","LARP","MTP","AX.25","OS","MICP","SCC-SP","ETHERIP","ENCAP","Any Private Encryption Scheme","GMTP","IFMP","PNNI","PIM","ARIS","SCPS","QNX","A/N","IPComp","SNP","Compaq-Peer","IPX-in-IP","VRRP","PGM","Any 0-hop Protocol","L2TP","DDX","IATP","STP","SRP","UTI","SMP","SM","PTP","IS-IS over IPv4","FIRE","CRTP","CRUDP","SSCOPMCE","IPLT","SPS","PIPE","SCTP","FC","RSVP-E2E-IGNORE","Mobility Header","UDPLite","MPLS-in-IP","manet","HIP","Shim6","WESP","ROHC","UNASSIGNED","EXPERIMENT","RESERVED"]
 
-    for msg in snort_listener.start_recv("/var/log/snort/snort_alert"):
+    for msg in snort_listener.start_recv("/var/log/snort/snort.log.1578846912"):
         print("load message")
         orig_msg = b'.'.join(msg.alertmsg)
         am = (str(orig_msg, 'utf-8').replace("\u0000", "")).replace("'", "")
