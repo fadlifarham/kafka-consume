@@ -3,6 +3,7 @@ from snortunsock import snort_listener
 import time
 import dpkt
 import socket
+import json
 
 TOPIC = "snort"
 KEY = "snort"
@@ -149,6 +150,7 @@ def main():
 
         # snort_mqtt.publish(topic, json.dumps(snort_message))
         # kafka_producer.send(TOPIC, key=KEY, value=snort_message)
+        snort_message = json.dumps(snort_message)
         publish_message(kafka_producer, TOPIC, KEY, snort_message)
 
 if __name__ == "__main__":
