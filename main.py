@@ -150,8 +150,8 @@ def main():
 
         # snort_mqtt.publish(topic, json.dumps(snort_message))
         # kafka_producer.send(TOPIC, key=KEY, value=snort_message)
-        snort_message = json.dumps(snort_message)
-        publish_message(kafka_producer, TOPIC, KEY, snort_message)
+        snort_message_json = json.dumps(snort_message)
+        publish_message(kafka_producer, TOPIC, KEY, snort_message_json)
 
 if __name__ == "__main__":
     main()
