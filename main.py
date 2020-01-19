@@ -19,6 +19,9 @@ def publish_message(producer_instance, topic_name, key, value):
         print('Exception in publishing message')
         print(ex)
 
+def ip_to_str(address):
+    return socket.inet_ntop(socket.AF_INET, address)
+
 def ip6_to_str(address):
     return socket.inet_ntop(socket.AF_INET6, address)
 
