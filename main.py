@@ -46,7 +46,7 @@ def main():
 
     for msg in snort_listener.start_recv("/var/log/snort/snort_alert"):
         print("")
-        print(msg)
+        print("Message : ", msg.__dict__)
         orig_msg = b'.'.join(msg.alertmsg)
         am = (str(orig_msg, 'utf-8').replace("\u0000", "")).replace("'", "")
         snort_message["timestamp"] = str(time.time())
