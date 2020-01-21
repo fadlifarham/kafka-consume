@@ -64,6 +64,7 @@ def main():
         snort_message["priority"] = event.priority
 
         print("Event : ", event.__dict__)
+        print("Reftime : ", event.ref_time.__dict__)
 
         eth = dpkt.ethernet.Ethernet(buf)
         src_mac = mac_addr(eth.src)
