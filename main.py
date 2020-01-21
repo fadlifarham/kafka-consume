@@ -63,6 +63,8 @@ def main():
         snort_message["classification"] = event.classification
         snort_message["priority"] = event.priority
 
+        print("Event : ", event.__dict__)
+
         eth = dpkt.ethernet.Ethernet(buf)
         src_mac = mac_addr(eth.src)
         dest_mac = mac_addr(eth.dst)
@@ -80,11 +82,18 @@ def main():
             snort_message["protocol"] = list_protocol[eth.data.p]
 
         try:
-            eth.data.data.sport
+            eth.data.data.dport
         except AttributeError:
             snort_message["dst_port"] = 0
         else:
             snort_message["dst_port"] = eth.data.data.dport
+
+        try:
+            eth.data.data.sport
+        except AttributeError:
+            snort_message["src_port"] = 0
+        else:
+            snort_message["src_port"] = eth.data.data.sport
         
         print('Ethernet Frame: ', mac_addr(eth.src), mac_addr(eth.dst), eth.type)
 
